@@ -1,0 +1,18 @@
+{
+  "name": "material-slide-menu",
+  "version": "1.0.0",
+  "homepage": "https://github.com/tigerhawkvok/material-slide-menu",
+  "authors": [
+    "Philip Kahn <tigerhawkvok@gmail.com>"
+  ],
+  "description": "Slide out menu with overtones of material design",
+  "main": "dist/slide-menu.min.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
