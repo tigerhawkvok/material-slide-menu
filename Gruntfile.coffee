@@ -16,7 +16,7 @@ module.exports = (grunt) ->
           except:['jQuery']
         screwIE8: true
         compress:
-          drop_console: false
+          drop_console: true
       dist:
         options:
           sourceMap:true
@@ -32,7 +32,7 @@ module.exports = (grunt) ->
     coffee:
       compile:
         options:
-          bare: true
+          bare: false
           join: true
           sourceMapDir: "dist/maps"
           sourceMap: true
