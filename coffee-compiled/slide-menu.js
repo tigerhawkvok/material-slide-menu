@@ -63,7 +63,7 @@
   };
 
   addHamburgerIcon = function(selector, addToSelector) {
-    var height, html, lr, scale, selectorClassName, style, top, translateX, translateY, width;
+    var height, html, lr, offset, scale, selectorClassName, style, top, translateX, translateY, width;
     if (selector == null) {
       selector = ".slide-menu-icon";
     }
@@ -93,7 +93,8 @@
         style = "<style type='text/css'>.toggle-switch span::before {top: -" + (27 * scale) + "px;height:" + height + ";} .toggle-switch span::after {bottom: -" + (27 * scale) + "px;height:" + height + ";}.toggle-switch__htla.active span::before {top: 0; -webkit-transform: translateX(" + translateX + ") translateY(" + translateY + ") rotate(45deg); -ms-transform: translateX(" + translateX + ") translateY(" + translateY + ") rotate(45deg); transform: translateX(" + translateX + ") translateY(" + translateY + ") rotate(45deg);} .toggle-switch__htla.active span::after {bottom: 0; -webkit-transform: translateX(" + translateX + ") translateY(-" + translateY + ") rotate(-45deg); -ms-transform: translateX(" + translateX + ") translateY(-" + translateY + ") rotate(-45deg); transform: translateX(" + translateX + ") translateY(-" + translateY + ") rotate(-45deg);}</style>";
         $(addToSelector).prepend(style);
       }
-      $(addToSelector).css("top", $(selector).height() + 5);
+      offset = $(selector).position().top + $(selector).height();
+      $(addToSelector).css("top", offset);
     }
     $(selector).click(function() {
       $(this).toggleClass("active");
