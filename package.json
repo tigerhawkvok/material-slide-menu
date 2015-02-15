@@ -12,11 +12,11 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "test.html"
   },
   "repository": {
     "type": "git",
-    "url": "foobar"
+    "url": "https://github.com/tigerhawkvok/material-slide-menu"
   },
   "author": "Philip Kahn <tigerhawkvok@gmail.com>",
   "license": "MIT"

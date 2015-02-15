@@ -76,8 +76,8 @@ addHamburgerIcon = (selector = ".slide-menu-icon", addToSelector = ".slide-menu"
     $(this).toggleClass("close-menu")
   false
 
-$ ->
-  addHamburgerIcon()
+setupSlider = (selector = ".slide-menu-icon", addToSelector = ".slide-menu") ->
+  addHamburgerIcon(selector,addToSelector)
   $(".mask").click ->
     closeMenu()
   $(".close-menu").click ->
@@ -85,3 +85,7 @@ $ ->
   $(".close-menu-sr").click ->
     closeMenu()
   console.log("Finished setting up slider.")
+  
+
+$ ->
+  setupSlider()

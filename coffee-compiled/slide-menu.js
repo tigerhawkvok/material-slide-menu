@@ -1,4 +1,4 @@
-var activeColor, activeNav, addHamburgerIcon, closeMenu, inactiveColor, isBlank, isEmpty, isNull, isNumber, mask, toFloat, toInt;
+var activeColor, activeNav, addHamburgerIcon, closeMenu, inactiveColor, isBlank, isEmpty, isNull, isNumber, mask, setupSlider, toFloat, toInt;
 
 mask = document.createElement("div");
 
@@ -111,8 +111,14 @@ addHamburgerIcon = function(selector, addToSelector) {
   return false;
 };
 
-$(function() {
-  addHamburgerIcon();
+setupSlider = function(selector, addToSelector) {
+  if (selector == null) {
+    selector = ".slide-menu-icon";
+  }
+  if (addToSelector == null) {
+    addToSelector = ".slide-menu";
+  }
+  addHamburgerIcon(selector, addToSelector);
   $(".mask").click(function() {
     return closeMenu();
   });
@@ -123,6 +129,10 @@ $(function() {
     return closeMenu();
   });
   return console.log("Finished setting up slider.");
+};
+
+$(function() {
+  return setupSlider();
 });
 
 //# sourceMappingURL=../dist/maps/slide-menu.js.map
