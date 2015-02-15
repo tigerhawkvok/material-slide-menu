@@ -1,7 +1,5 @@
 module.exports = (grunt) ->
   # Gruntfile
-  # https://github.com/sindresorhus/grunt-shell
-  grunt.loadNpmTasks("grunt-shell")
   # https://www.npmjs.com/package/grunt-contrib-coffee
   grunt.loadNpmTasks("grunt-contrib-coffee")
   # https://github.com/gruntjs/grunt-contrib-watch
@@ -10,10 +8,6 @@ module.exports = (grunt) ->
   # https://github.com/mathiasbynens/grunt-yui-compressor
   # May end up porting to https://github.com/gruntjs/grunt-contrib-uglify
   grunt.loadNpmTasks('grunt-yui-compressor')
-  # https://www.npmjs.com/package/grunt-phplint
-  grunt.loadNpmTasks("grunt-phplint");
-  grunt.loadNpmTasks('grunt-newer');
-  grunt.loadNpmTasks('grunt-contrib-clean')
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
     uglify:
@@ -28,7 +22,7 @@ module.exports = (grunt) ->
           sourceMap:true
           sourceMapIncludeSources:true
           sourceMapName: "dist/maps/dist.map"
-          sourceMapIn: "dist/maps/slide-menu.map"
+          sourceMapIn: "dist/maps/slide-menu.js.map"
         files:
           "dist/slide-menu.min.js":"coffee-compiled/slide-menu.js"
     cssmin:
@@ -38,7 +32,8 @@ module.exports = (grunt) ->
     coffee:
       compile:
         options:
-          bare: false
+          bare: true
+          join: true
           sourceMapDir: "dist/maps"
           sourceMap: true
         files: [
