@@ -1,0 +1,12 @@
+Slide Out Menu
+================
+
+Simply set up a `<nav>` element with the class `menu slide-menu`, then include the CSS and JS files in `dist/`, and you're set!
+
+## Configuration
+
+In the nav element, you can specify the following attributes:
+
+- `data-button-active-color`: The active color on the hamburger button
+- `data-button-inactive-color`: The inactive background color on the hamburger button
+- `data-scale`: The relative sizing of the button. Default is 108px X 96px.
