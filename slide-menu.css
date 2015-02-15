@@ -102,8 +102,8 @@ body.sml-open nav.slide-menu {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  width: 108px;
-  height: 96px;
+  /* width: 108px; */
+  /* height: 96px; */
   font-size: 0;
   text-indent: -9999px;
   -webkit-appearance: none;
@@ -157,9 +157,6 @@ body.sml-open nav.slide-menu {
  * arrow. Usually indicates an off canvas menu sliding in from left that
  * will be close on re-click of the icon.
  */
-.toggle-switch__htla {
-  background-color: #32dc64;
-}
 
 .toggle-switch__htla span {
   -webkit-transition: -webkit-transform 0.3s;
@@ -183,10 +180,6 @@ body.sml-open nav.slide-menu {
 }
 
 /* active state, i.e. menu open */
-.toggle-switch__htla.active {
-  background-color: #18903c;
-}
-
 .toggle-switch__htla.active span {
   -webkit-transform: rotate(180deg);
       -ms-transform: rotate(180deg);
