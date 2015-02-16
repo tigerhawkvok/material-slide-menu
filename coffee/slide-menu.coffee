@@ -41,6 +41,11 @@ addHamburgerIcon = (selector = ".slide-menu-icon", addToSelector = ".slide-menu"
     inactiveColor = $(addToSelector).attr("data-button-inactive-color")
     activeColor = $(addToSelector).attr("data-button-active-color")
     scale = toFloat($(addToSelector).attr("data-scale"))
+    menuWidth = toFloat($(addToSelector).attr("data-width"))
+    if isNull(menuWidth)
+      menuWidth = "300px"
+    style = "<style type='text/css'>#{addToSelector} {width: #{menuWidth}; left:-#{menuWidth};}</style>"
+    $(addToSelector).prepend(style)
     if isNumber(scale) and scale > 0
       height = 96*scale
       width = 108*scale
@@ -86,7 +91,7 @@ setupSlider = (selector = ".slide-menu-icon", addToSelector = ".slide-menu") ->
   $(".close-menu-sr").click ->
     closeMenu()
   console.log("Finished setting up slider.")
-  
+
 
 $ ->
   setupSlider()

@@ -1,6 +1,6 @@
 {
   "name": "material-slide-menu",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Slide out menu with overtones of material design",
   "main": "dist/slide-menu.min.js",
   "dependencies": {
