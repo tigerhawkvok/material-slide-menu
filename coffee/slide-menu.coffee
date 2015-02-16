@@ -41,7 +41,7 @@ addHamburgerIcon = (selector = ".slide-menu-icon", addToSelector = ".slide-menu"
     inactiveColor = $(addToSelector).attr("data-button-inactive-color")
     activeColor = $(addToSelector).attr("data-button-active-color")
     scale = toFloat($(addToSelector).attr("data-scale"))
-    if isNumber(scale)
+    if isNumber(scale) and scale > 0
       height = 96*scale
       width = 108*scale
       $(selector)

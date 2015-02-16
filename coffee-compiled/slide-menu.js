@@ -80,7 +80,7 @@
       inactiveColor = $(addToSelector).attr("data-button-inactive-color");
       activeColor = $(addToSelector).attr("data-button-active-color");
       scale = toFloat($(addToSelector).attr("data-scale"));
-      if (isNumber(scale)) {
+      if (isNumber(scale) && scale > 0) {
         height = 96 * scale;
         width = 108 * scale;
         $(selector).css("background-color", activeColor).css("height", "" + height + "px").css("width", "" + width + "px");
