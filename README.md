@@ -13,3 +13,5 @@ In the nav element, you can specify the following attributes:
 
 
 To have the slider not autoload, comment out the last line in `coffee/slide-menu.coffee` and type `grunt compile` at the command line.
+
+To remove the top-level safety wrapper, change the `bare` keyword in the `Gruntfile` in `coffee:compile` to `true` before compiling.
