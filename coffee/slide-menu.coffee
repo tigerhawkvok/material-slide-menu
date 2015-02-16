@@ -65,9 +65,7 @@ addHamburgerIcon = (selector = ".slide-menu-icon", addToSelector = ".slide-menu"
       .css("height",height)
       style = "<style type='text/css'>.toggle-switch span::before {top: -#{27*scale}px;height:#{height};} .toggle-switch span::after {bottom: -#{27*scale}px;height:#{height};}.toggle-switch__htla.active span::before {top: 0; -webkit-transform: translateX(#{translateX}) translateY(#{translateY}) rotate(45deg); -ms-transform: translateX(#{translateX}) translateY(#{translateY}) rotate(45deg); transform: translateX(#{translateX}) translateY(#{translateY}) rotate(45deg);} .toggle-switch__htla.active span::after {bottom: 0; -webkit-transform: translateX(#{translateX}) translateY(-#{translateY}) rotate(-45deg); -ms-transform: translateX(#{translateX}) translateY(-#{translateY}) rotate(-45deg); transform: translateX(#{translateX}) translateY(-#{translateY}) rotate(-45deg);}</style>"
       $(addToSelector).prepend(style)
-    # Push the slide nav down by the height of the button
-    offset = $(selector).position().top + $(selector).height()
-    $(addToSelector).css("top",offset)
+    offsetMenu(selector,addToSelector)
   $(selector).click ->
     $(this).toggleClass("active")
     if $(this).hasClass("active")
@@ -91,6 +89,11 @@ setupSlider = (selector = ".slide-menu-icon", addToSelector = ".slide-menu") ->
   $(".close-menu-sr").click ->
     closeMenu()
   console.log("Finished setting up slider.")
+
+window.offsetMenu = (selector = ".slide-menu-icon",menuSelector = ".slide-menu") ->
+  # Push the slide nav down by the height of the button
+  offset = $(selector).position().top + $(selector).height()
+  $(menuSelector).css("top",offset)
 
 
 $ ->
