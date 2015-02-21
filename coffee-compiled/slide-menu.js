@@ -151,7 +151,17 @@
   };
 
   $(function() {
-    return setupSlider();
+    var e;
+    if ($(".slide-menu").exists()) {
+      try {
+        return setupSlider();
+      } catch (_error) {
+        e = _error;
+        return console.error("Couldn't set up slider!! " + e.message);
+      }
+    } else {
+      return console.warn("Not setting up slider - .slide-menu doesn't exist");
+    }
   });
 
 }).call(this);

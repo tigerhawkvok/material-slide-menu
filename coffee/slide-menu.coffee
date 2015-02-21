@@ -97,4 +97,10 @@ window.offsetMenu = (selector = ".slide-menu-icon",menuSelector = ".slide-menu")
 
 
 $ ->
-  setupSlider()
+  if $(".slide-menu").exists()
+    try
+      setupSlider()
+    catch e
+      console.error("Couldn't set up slider!! #{e.message}")
+  else
+    console.warn("Not setting up slider - .slide-menu doesn't exist")
