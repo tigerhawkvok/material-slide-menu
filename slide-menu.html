@@ -1,0 +1,13 @@
+<link rel="import" href="bower_components/polymer/polymer.html"/>
+<polymer-element name="slide-menu" attributes="inactive-color active-color scale menu-width">
+  <template>
+    
+  </template>
+  <link rel="stylesheet" href="dist/slide-menu.min.css"/>
+  <script src="dist/slide-menu.min.js" type="text/javascript"></script>
+  <script>
+    Polymer("slide-menu",{
+    ready: window.slideMenu.setupSlider()
+    });
+  </script>
+</polymer-element>

@@ -1,5 +1,7 @@
 (function() {
-  var activeColor, activeNav, addHamburgerIcon, closeMenu, inactiveColor, isBlank, isEmpty, isNull, isNumber, mask, setupSlider, toFloat, toInt;
+  var activeColor, activeNav, addHamburgerIcon, closeMenu, inactiveColor, isBlank, isEmpty, isNull, isNumber, mask, toFloat, toInt;
+
+  window.slideMenu = new Object();
 
   mask = document.createElement("div");
 
@@ -118,24 +120,34 @@
     return false;
   };
 
-  setupSlider = function(selector, addToSelector) {
+  slideMenu.setupSlider = function(selector, addToSelector) {
+    var e;
     if (selector == null) {
       selector = ".slide-menu-icon";
     }
     if (addToSelector == null) {
       addToSelector = ".slide-menu";
     }
-    addHamburgerIcon(selector, addToSelector);
-    $(".mask").click(function() {
-      return closeMenu();
-    });
-    $(".close-menu").click(function() {
-      return closeMenu();
-    });
-    $(".close-menu-sr").click(function() {
-      return closeMenu();
-    });
-    return console.log("Finished setting up slider.");
+    if (!$(addToSelector).exists()) {
+      console.warn("Not setting up slider - " + addToSelector + " doesn't exist");
+      return false;
+    }
+    try {
+      addHamburgerIcon(selector, addToSelector);
+      $(".mask").click(function() {
+        return closeMenu();
+      });
+      $(".close-menu").click(function() {
+        return closeMenu();
+      });
+      $(".close-menu-sr").click(function() {
+        return closeMenu();
+      });
+      return console.log("Finished setting up slider.");
+    } catch (_error) {
+      e = _error;
+      return console.error("Couldn't set up slider - " + e.message);
+    }
   };
 
   window.offsetMenu = function(selector, menuSelector) {
@@ -150,19 +162,7 @@
     return $(menuSelector).css("top", offset);
   };
 
-  $(function() {
-    var e;
-    if ($(".slide-menu").exists()) {
-      try {
-        return setupSlider();
-      } catch (_error) {
-        e = _error;
-        return console.error("Couldn't set up slider!! " + e.message);
-      }
-    } else {
-      return console.warn("Not setting up slider - .slide-menu doesn't exist");
-    }
-  });
+  slideMenu.offsetMenu = window.offsetMenu;
 
 }).call(this);
 

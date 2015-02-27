@@ -1,5 +1,7 @@
 module.exports = (grunt) ->
   # Gruntfile
+  # https://github.com/sindresorhus/grunt-shell
+  grunt.loadNpmTasks("grunt-shell")
   # https://www.npmjs.com/package/grunt-contrib-coffee
   grunt.loadNpmTasks("grunt-contrib-coffee")
   # https://github.com/gruntjs/grunt-contrib-watch
@@ -10,6 +12,11 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks('grunt-yui-compressor')
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
+    shell:
+      options:
+        stderr: false
+      copycoffee:
+        command: ["cp coffee/slide-menu.coffee dist/maps/slide-menu.coffee"].join("&&")
     uglify:
       options:
         mangle:
@@ -47,9 +54,9 @@ module.exports = (grunt) ->
     watch:
       scripts:
         files: ["coffee/*.coffee"]
-        tasks: ["coffee:compile","uglify:dist"]
+        tasks: ["coffee:compile","uglify:dist","shell:copycoffee"]
       styles:
         files: ["*.css"]
         tasks: ["cssmin"]
   grunt.registerTask("default",["watch"])
-  grunt.registerTask("compile","Compile coffeescript and minify CSS",["coffee:compile","uglify:dist","cssmin"])
+  grunt.registerTask("compile","Compile coffeescript and minify CSS",["coffee:compile","uglify:dist","shel:copycoffee","cssmin"])
